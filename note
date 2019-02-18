@@ -14,7 +14,7 @@ http://www.runoob.com/mongodb/mongodb-window-install.html
 常用命令1：
     mongo 进入mongo shell 编辑
     变量 var
-    函数 function
+    函数 function 正常写函数，出现···表示函数体内部，并没有结束
     输出 print
     显示数据库 show dbs
     进入/创建 数据库 use shop(数据库名称)

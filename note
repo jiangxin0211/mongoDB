@@ -1,0 +1,24 @@
+错误原因：
+
+官方最新版的mongodb需要：
+VC++2015 RC x64的支持，否则会报出
+
+下载网址：https://www.microsoft.com/zh-cn/download/details.aspx?id=48145
+
+可以通过命令： msinfo32    产看自己电脑的版本等系统信息。
+
+http://www.runoob.com/mongodb/mongodb-window-install.html
+
+无法启动此程序，因为计算机中丢失api-ms-win-crt-runtime-l1-1-0.dll。尝试重新安装程序以解决问题。
+
+常用命令1：
+    mongo 进入mongo shell 编辑
+    变量 var
+    函数 function
+    输出 print
+    显示数据库 show dbs
+    进入/创建 数据库 use shop(数据库名称)
+    显示集合 show collections
+    显示当前数据库 db
+
+常用命令2：

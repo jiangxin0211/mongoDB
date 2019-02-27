@@ -13,6 +13,9 @@ http://www.runoob.com/mongodb/mongodb-window-install.html
 
 mac安装：http://www.runoob.com/mongodb/mongodb-osx-install.html
 
+配置path：sudo open ~/.bash_profile
+            export PATH=/usr/local/mongodb/bin:$PATH
+
 $ cd /usr/local/mongodb/bin
 $ ./mongo
 进入mongo shell edit
@@ -29,3 +32,45 @@ $ ./mongo
     显示当前数据库 db
 
 常用命令2：
+    插入：db.user.insert({"name": "jiangxin"})；// WriteResult({ "nInserted" : 1 })表示插入一条数据成功
+    查找：db.user.find();// { "_id" : ObjectId("5c7665ca09ce9dae764ec9c1"), "name" : "jiangxin" }//_id是自动生成，相当于主键
+    db.user.findOne();//查询第一条数据
+    修改：db.user.update({查询},{修改});
+    删除：db.user.remove(条件);
+    删除集合：db.user.drop();
+    删除数据库：db.dropDatabase();
+
+
+    加载js文件load('./xx.js')
+
+数据更新：
+    $set：db.user.update({name:"xiaobai"},{$set:{age: 43}})
+    $unset:删除
+    upsert:有这个属性更新，无这个属性插入。db.user.update({name:"xiaobai"},{$set:{age: 43}},{upsert: true})
+    multi:给所有的对象都添加一个属性 db.user.update({},{$set:{age: 43}},{multi: true})//true是给每一个都加；false是只给第一条添加
+    数组：
+        $push:给数组添加值
+        $addToSet:检查数组内，如果没有这个值就push进去，有就不插入
+        $each:把每一个都插入进数组
+        $set:可以具体改变数据里面具体某一个值db.user.update({name: "xiaobai"}, {$set: {'hobby.0': 'bigbit'}});
+    findAndModify:应答式的，有个new属性为true式返回更新后的结果；false返回原来的
+
+数据查找find：
+    $gte:大于等于
+    $lte:小于等于
+    $in:在某区间
+    $and,$or,$not:与或非
+    数组：
+        $all / $in: 全有 / 只有一个
+        $size: 数组长度
+    分页：
+        limit:显示几条
+        skip:从第几个开始查找
+        sort:排序方法：-1降序、1升序
+
+    js forEach：循环遍历的查找每一条数据
+
+索引：可以调高我们的查询效率
+    ensureIndex:建立索引
+    getIndexes:
+    dropIndex:
